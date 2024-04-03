@@ -1,0 +1,12 @@
+@import "../../../../visual/visual";
+
+:host {
+  position: absolute;
+  bottom: $offset-12px;
+  right: $offset-20px;
+
+  a {
+    color: $color-whitesmoke;
+    font-style: italic;
+  }
+}

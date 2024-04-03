@@ -1,0 +1,73 @@
+@import "styles/@styles";
+@import "animations/@animations";
+@import "mixins/@mixins";
+@import "components/@components.scss";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: rgba(18,18,18,0.9);
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/assets/images/backgrounds/background.png");
+  background-size: 100% 100%;
+  font-family: 'Segoe UI', serif;
+}
+
+a {
+  text-decoration: none;
+  &:active {
+    text-decoration: none;
+  }
+}
+
+a, button {
+  :hover {
+    cursor: pointer;
+  }
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes exit {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+::view-transition-old(root) {
+  animation: exit 1s ease 0s 1 normal forwards;
+}
+
+::view-transition-new(root) {
+  animation: enter 1s ease 0s 1 normal forwards;
+}

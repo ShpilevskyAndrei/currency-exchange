@@ -1,0 +1,17 @@
+<section class="calculator">
+  <app-back-button/>
+
+  <form [formGroup]="currencyExchangeForm">
+    <input formControlName="fromValue" type="number">
+    <select formControlName="fromCurrency" >
+      <option *ngFor="let currency of currencies | enumToArray" [value]="currency">{{ currency }}</option>
+    </select>
+
+    <p><==></p>
+
+    <input formControlName="toValue"  type="number">
+    <select formControlName="toCurrency" >
+      <option *ngFor="let currency of currencies | enumToArray" [value]="currency">{{ currency }}</option>
+    </select>
+  </form>
+</section>

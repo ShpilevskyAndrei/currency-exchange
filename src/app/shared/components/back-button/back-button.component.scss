@@ -1,0 +1,26 @@
+@import "../../../../visual/visual.scss";
+
+:host {
+  .back {
+    @include flex(row, center, center);
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+    height: 56px !important;
+    width: 56px !important;
+    gap: $offset-8px;
+    border: none;
+    border-radius: 50%;
+    background-color: $color-black-25;
+    color: $color-white-default;
+    font-size: $font-size-16px;
+    padding: $offset-8px $offset-12px;
+    &:hover {
+      background-color: $color-white-10;
+    }
+
+    &_icon {
+      filter: invert(93%) sepia(0%) saturate(28%) hue-rotate(180deg)
+        brightness(81%) contrast(82%);
+    }
+  }
+}

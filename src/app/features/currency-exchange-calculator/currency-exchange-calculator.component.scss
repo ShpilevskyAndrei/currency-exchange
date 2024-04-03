@@ -1,0 +1,9 @@
+@import "../../../visual/visual.scss";
+
+:host {
+  width: 100%;
+
+  .calculator {
+    @include flex(column, flex-start, flex-start);
+  }
+}

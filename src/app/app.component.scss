@@ -1,0 +1,18 @@
+@import "../visual/visual";
+
+:host {
+  .app-content {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
+    box-sizing: border-box;
+    &__main {
+      @include flex(row, flex-start, center);
+      width: $content-width;
+      margin: 0 auto;
+      height: 100%;
+      padding: $offset-100px 0 $offset-40px;
+      box-sizing: border-box;
+    }
+  }
+}
