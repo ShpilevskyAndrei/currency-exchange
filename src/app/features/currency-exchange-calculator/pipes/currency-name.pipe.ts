@@ -9,7 +9,7 @@ import {CurrencyConfigs} from "../constants/currencies";
 export class CurrencyNamePipe implements PipeTransform {
   private readonly _currencyConfigs = CurrencyConfigs;
 
-  public transform(value: CurrencyEnum): string {
-    return this._currencyConfigs[value].title
+  public transform(currency: CurrencyEnum): string {
+    return this._currencyConfigs[currency].title
   }
 }

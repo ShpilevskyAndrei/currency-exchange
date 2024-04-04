@@ -1,0 +1,20 @@
+.select {
+  height: 60px;
+  margin: 0;
+  padding: 0 12px;
+  box-sizing: border-box;
+  border: 0;
+  border-left: 1px solid #ccc;
+  border-radius: 0 4px 4px 0;
+  outline: none;
+  background-color: whitesmoke;
+  transition: border-color 0.3s ease;
+  font-size: 16px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  option:hover {
+      cursor: pointer;
+  }
+}

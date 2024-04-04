@@ -13,11 +13,12 @@ import {
 } from "rxjs";
 import {EnumToArrayPipe} from "../../shared/pipes/enum-to-array/enum-to-array.pipe";
 import {CurrencyNamePipe} from "./pipes/currency-name.pipe";
+import {FlagByCurrencyPipe} from "./pipes/flag-by-currency.pipe";
 
 @Component({
   selector: 'app-currency-exchange-calculator',
   standalone: true,
-  imports: [CommonModule, BackButtonComponent, ReactiveFormsModule, EnumToArrayPipe, CurrencyNamePipe],
+  imports: [CommonModule, BackButtonComponent, ReactiveFormsModule, EnumToArrayPipe, CurrencyNamePipe, FlagByCurrencyPipe],
   templateUrl: './currency-exchange-calculator.component.html',
   styleUrl: './currency-exchange-calculator.component.scss'
 })
@@ -32,7 +33,7 @@ export class CurrencyExchangeCalculatorComponent implements OnInit {
   protected readonly currencies = CurrencyEnum;
 
   public ngOnInit(): void {
-    //this.trackCurrencies(); //TODO. return
+    this.trackCurrencies();
   }
 
   public calculateToAmount(): void {
