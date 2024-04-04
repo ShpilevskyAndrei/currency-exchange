@@ -12,7 +12,7 @@ import {ILatestExchangeBetweenResponse} from "../interfaces/latest-exchange-betw
   providedIn: 'root'
 })
 export class CurrencyService {
-  private readonly _api = 'api/currency';
+  private readonly _api = 'https://api.freecurrencyapi.com/v1';
   private readonly _endpoints = {
     convertLatest: 'latest'
   }
