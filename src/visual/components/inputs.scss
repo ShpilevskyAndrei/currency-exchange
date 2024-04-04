@@ -1,12 +1,15 @@
+@import "../styles/colors";
+@import "../styles/offsets";
+@import "../styles/font-sizes";
+
 .input {
-  padding: 0 12px;
+  padding: 0 $offset-12px;
   margin: 0;
   height: 60px;
   box-sizing: border-box;
-  border: 0 solid #ccc;
+  border: 0 solid $color-red-grey;
   border-radius: 4px 0 0 4px;
   outline: none;
-  background-color: whitesmoke;
-  transition: border-color 0.3s ease;
-  font-size: 16px;
+  background-color: $color-whitesmoke;
+  font-size: $font-size-16px;
 }

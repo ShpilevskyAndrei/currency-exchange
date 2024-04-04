@@ -7,6 +7,12 @@
     @include flex(column, flex-start, space-between);
     width: 100%;
 
+    &_title {
+      font-size: $font-size-49px;
+      color: $color-white-default;
+      margin-bottom: $offset-40px;
+    }
+
     &__form {
       @include flex(row, center, space-between);
       width: 100%;
@@ -43,17 +49,18 @@
 
     &__currency-info {
       &_message {
-        font-size: $font-size-32px;
+        font-size: $font-size-24px;
         color: $color-white-default;
       }
     }
 
     &__additional {
       width: 50%;
-      margin-top: $offset-40px;
+      margin-top: $offset-100px;
       &_message {
         color: $color-whitesmoke;
-        font-size: $font-size-18px;
+        font-size: $font-size-16px;
+        font-style: italic;
         a {
           color: gray;
           text-decoration: underline;

@@ -6,6 +6,7 @@
     width: 100vw;
     overflow-y: auto;
     box-sizing: border-box;
+
     &__main {
       @include flex(row, flex-start, center);
       width: $content-width;

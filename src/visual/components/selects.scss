@@ -1,20 +1,20 @@
+@import "../styles/colors";
+@import "../styles/offsets";
+@import "../styles/font-sizes";
+
 .select {
   height: 60px;
   margin: 0;
-  padding: 0 12px;
+  padding: 0 $offset-12px;
   box-sizing: border-box;
   border: 0;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid $color-red-grey;
   border-radius: 0 4px 4px 0;
   outline: none;
-  background-color: whitesmoke;
+  background-color: $color-whitesmoke;
   transition: border-color 0.3s ease;
-  font-size: 16px;
+  font-size: $font-size-16px;
   &:hover {
     cursor: pointer;
-  }
-
-  option:hover {
-      cursor: pointer;
   }
 }

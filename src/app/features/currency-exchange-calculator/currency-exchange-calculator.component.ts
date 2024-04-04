@@ -12,8 +12,8 @@ import {
   take,
 } from "rxjs";
 import {EnumToArrayPipe} from "../../shared/pipes/enum-to-array/enum-to-array.pipe";
-import {CurrencyNamePipe} from "./pipes/currency-name.pipe";
-import {FlagByCurrencyPipe} from "./pipes/flag-by-currency.pipe";
+import {CurrencyNamePipe} from "./pipes/currency-name/currency-name.pipe";
+import {FlagByCurrencyPipe} from "./pipes/flag-by-currency/flag-by-currency.pipe";
 
 @Component({
   selector: 'app-currency-exchange-calculator',
