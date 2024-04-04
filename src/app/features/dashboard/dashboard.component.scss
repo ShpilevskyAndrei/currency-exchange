@@ -52,6 +52,14 @@
         width: 400px;
         animation: rotation 20s linear infinite;
         filter: invert(21%) sepia(25%) saturate(5114%) hue-rotate(337deg) brightness(134%) contrast(94%);
+
+        @media only screen and (max-width: $dimension-width-560) {
+          max-width: 300px;
+        }
+
+        @media only screen and (max-width: $dimension-width-400) {
+          max-width: 200px;
+        }
       }
     }
   }
