@@ -9,7 +9,8 @@
 
     &__main {
       @include flex(row, flex-start, center);
-      width: $content-width;
+      max-width: $content-width;
+      width: 80%;
       margin: 0 auto;
       height: 100%;
       padding: $offset-100px 0 $offset-40px;

@@ -1,38 +1,79 @@
 <section class="calculator">
-  <app-back-button/>
+  <app-back-button class="calculator_back-button"/>
 
   <h1 class="calculator_title">Конвертер валют</h1>
 
   <form [formGroup]="currencyForm" class="calculator__form">
 
     <div class="calculator__form__from">
-      <input class="calculator__form__from_amount input" formControlName="fromAmount" type="number" (input)="calculateToAmount()">
-      <select class="calculator__form__from_currency select" formControlName="fromCurrency" >
-        <option *ngFor="let currency of currencies | enumToArray" [value]="currency">
-          {{ currency }}
-        </option>
-      </select>
-      <img class="calculator__form__from_flag" [src]="currencyForm.controls['fromCurrency'].value | flagByCurrency" alt="">
+      <div>
+        <input
+          class="calculator__form__from_amount input"
+          formControlName="fromAmount"
+          type="number"
+          (input)="calculateToAmount()">
+        <select
+          class="calculator__form__from_currency select"
+          formControlName="fromCurrency"
+        >
+          <option
+            *ngFor="let currency of currencies | enumToArray"
+            [value]="currency">
+            {{ currency }}
+          </option>
+        </select>
+      </div>
+
+      <img
+        class="calculator__form__from_flag"
+        [src]="currencyForm.controls['fromCurrency'].value | flagByCurrency"
+        alt=""
+      >
     </div>
 
-    <img class="calculator__form_switcher" src="assets/icons/core/switch.svg" alt="<=>" (click)="switchCurrencies()">
+    <img
+      class="calculator__form_switcher"
+      src="assets/icons/core/switch.svg"
+      alt="<=>"
+      (click)="switchCurrencies()">
 
     <div class="calculator__form__to">
-      <img class="calculator__form__to_flag" [src]="currencyForm.controls['toCurrency'].value | flagByCurrency" alt="">
-      <input class="calculator__form__to_amount input" formControlName="toAmount" type="number" (input)="calculateFromAmount()">
-      <select class="calculator__form__to_currency select" formControlName="toCurrency" >
-        <option *ngFor="let currency of currencies | enumToArray" [value]="currency">
+      <img
+        class="calculator__form__to_flag"
+        [src]="currencyForm.controls['toCurrency'].value | flagByCurrency"
+        alt="">
+
+      <div>
+        <input
+          class="calculator__form__to_amount input"
+          formControlName="toAmount"
+          type="number"
+          (input)="calculateFromAmount()"
+        >
+        <select
+          class="calculator__form__to_currency select"
+          formControlName="toCurrency"
+        >
+          <option *ngFor="let currency of currencies | enumToArray" [value]="currency">
             {{ currency }}
-        </option>
-      </select>
+          </option>
+        </select>
+      </div>
+
     </div>
   </form>
 
   <div class="calculator__currency-info">
-    <p class="calculator__currency-info_message">1 {{ currencyForm.controls['fromCurrency'].value | currencyName }} = {{ rate.toFixed(6) }} {{ currencyForm.controls['toCurrency'].value | currencyName }}</p>
+    <p class="calculator__currency-info_message">
+      1 {{ currencyForm.controls['fromCurrency'].value | currencyName }}
+      = {{ rate.toFixed(6) | removeTrailingZeros }} {{ currencyForm.controls['toCurrency'].value | currencyName }}
+    </p>
   </div>
 
   <aside class="calculator__additional">
-    <p class="calculator__additional_message">*данные о курсах валют носят ознакомительный характер и предоставлены бесплатным сервисом <a href="https://freecurrencyapi.com" target="_blank">freecurrencyapi.com</a>, который ограничивает количество запросов в минуту - <b>10</b>.</p>
+    <p class="calculator__additional_message">*данные о курсах валют носят ознакомительный характер и
+      предоставлены бесплатным сервисом
+      <a href="https://freecurrencyapi.com" target="_blank">freecurrencyapi.com</a>
+      , который ограничивает количество запросов в минуту - <b>10</b>.</p>
   </aside>
 </section>

@@ -14,17 +14,28 @@ import {
 import {EnumToArrayPipe} from "../../shared/pipes/enum-to-array/enum-to-array.pipe";
 import {CurrencyNamePipe} from "./pipes/currency-name/currency-name.pipe";
 import {FlagByCurrencyPipe} from "./pipes/flag-by-currency/flag-by-currency.pipe";
+import {RemoveTrailingZerosPipe} from "./pipes/remove-trailing-zeros/remove-trailing-zeros.pipe";
 
 @Component({
   selector: 'app-currency-exchange-calculator',
   standalone: true,
-  imports: [CommonModule, BackButtonComponent, ReactiveFormsModule, EnumToArrayPipe, CurrencyNamePipe, FlagByCurrencyPipe],
+  imports: [
+    CommonModule,
+    BackButtonComponent,
+    ReactiveFormsModule,
+    EnumToArrayPipe,
+    CurrencyNamePipe,
+    FlagByCurrencyPipe,
+    RemoveTrailingZerosPipe
+  ],
   templateUrl: './currency-exchange-calculator.component.html',
   styleUrl: './currency-exchange-calculator.component.scss'
 })
 export class CurrencyExchangeCalculatorComponent implements OnInit {
   private readonly _destroyRef = inject(DestroyRef);
   private readonly _currencyService = inject(CurrencyService);
+
+  private readonly _removeTrailingZerosPipe = new RemoveTrailingZerosPipe();
 
   public currencyForm: FormGroup = this.initCurrencyExchangeForm();
 
@@ -38,12 +49,16 @@ export class CurrencyExchangeCalculatorComponent implements OnInit {
 
   public calculateToAmount(): void {
     const fromAmount = this.currencyForm.controls['fromAmount'].value;
-    this.currencyForm.controls['toAmount'].setValue((fromAmount * this.rate).toFixed(6));
+    const result = this._removeTrailingZerosPipe.transform((fromAmount * this.rate).toFixed(6))
+
+    this.currencyForm.controls['toAmount'].setValue(result);
   }
 
   public calculateFromAmount(): void {
     const toAmount = this.currencyForm.controls['toAmount'].value;
-    this.currencyForm.controls['fromAmount'].setValue((toAmount / this.rate).toFixed(6));
+    const result = this._removeTrailingZerosPipe.transform((toAmount / this.rate).toFixed(6))
+
+    this.currencyForm.controls['fromAmount'].setValue(result);
   }
 
   public switchCurrencies(): void {
